@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colour Switcher</title>
+    <style>
+        body {
+            background-color: white;
+            font-family: sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 90%;
+        }
+
+        .box {
+            width: 10vw;
+            height: 10vw;
+            max-width: 50px;
+            max-height: 50px;
+            margin: 5px;
+            border: 2px solid cyan;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .box {
+                width: 15vw;
+                height: 15vw;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Color Switcher</h1>
+    <div class="container">
+        <div class="box" style="background-color: white;"></div>
+        <div class="box" style="background-color: red;"></div>
+        <div class="box" style="background-color: yellow;"></div>
+        <div class="box" style="background-color: green;"></div>
+        <div class="box" style="background-color: blue;"></div>
+        <div class="box" style="background-color: brown;"></div>
+    </div>
+    <script>
+        let colourbox = document.querySelectorAll('.box');
+        let body = document.body;
+
+        colourbox.forEach(box => {
+            box.onclick = function () {
+                body.style.backgroundColor = this.style.backgroundColor;
+            };
+        });
+    </script>
+</body>
+
+</html>
